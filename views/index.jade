@@ -1,0 +1,31 @@
+extends layout/layout
+
+block content
+    div#app
+        div.choose-address-page(style="display:block")
+            div.head-fix
+                ul.head-address-ul
+                    li(v-on:click="setCurrentRegionLevel(0)" v-bind:class="{'head-address-li':vm.currentRegionLevel == 0}") {{vm.selectProvinceName}}
+                    li(v-on:click="setCurrentRegionLevel(1)" v-bind:class="{'head-address-li':vm.currentRegionLevel == 1}") {{vm.selectCityName}}
+                    li(v-on:click="setCurrentRegionLevel(2)" v-bind:class="{'head-address-li':vm.currentRegionLevel == 2}") {{vm.selectAreaName}}
+                    li(v-on:click="setCurrentRegionLevel(3)" v-bind:class="{'head-address-li':vm.currentRegionLevel == 3}") {{vm.selectTownName}}
+            div.address-container
+                div.address-content
+                        ul.address-ul
+                            li(v-for="item in vm.provinceList" v-bind:dataid="item.id" 
+                            v-on:click="selectProvince(item.id)" v-bind:class="{'checked-color':vm.provinceSelected[item.id]}"){{item.name}}
+                                span(v-bind:class="{'check-pic':vm.provinceSelected[item.id]}")
+                        ul.address-ul
+                            li(v-for="item in vm.cityList" v-bind:dataid="item.id"
+                            v-on:click="selectCity(item.id)" v-bind:class="{'checked-color':vm.citySelected[item.id]}"){{item.name}}
+                                span(v-bind:class="{'check-pic':vm.citySelected[item.id]}")
+                        ul.address-ul
+                            li(v-for="item in vm.areaList" v-bind:dataid="item.id"
+                            v-on:click="selectArea(item.id)" v-bind:class="{'checked-color':vm.areaSelected[item.id]}"){{item.name}}
+                                span(v-bind:class="{'check-pic':vm.areaSelected[item.id]}")
+                        ul.address-ul
+                            li(v-for="item in vm.townList" v-bind:dataid="item.id"
+                            v-on:click="selectTown(item.id)" v-bind:class="{'checked-color':vm.townSelected[item.id]}"){{item.name}}
+                                span(v-bind:class="{'check-pic':vm.townSelected[item.id]}")
+
+            script(src='/js/selectRegion.js')
