@@ -2,7 +2,7 @@ var express = require('express');
 var region = require('./controllers/region');
 var router = express.Router();
 
-router.get('/index', function (req, res) {
+router.get('/', function (req, res) {
     res.render('index', {
         title: "省份"
     })
