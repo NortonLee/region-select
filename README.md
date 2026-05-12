@@ -1,4 +1,4 @@
 # RegionSelect 地址选择
-> 参照JD配送地址选择，使用了JD的API
+> This is a old project
 
 > vue.js + node.js + express + jade
